@@ -33,14 +33,22 @@
       value = parseInt(x.value);
       console.log(value);
 
-      // https://stackoverflow.com/questions/13175510/call-python-function-from-javascript-code
-      $.ajax({
-        type: "POST",
-        url: "~/testni_program.py",
-        data: { param: text}
-      }).done(function( o ) {
-        console.log(o)
-      });
+      // https://www.geeksforgeeks.org/how-to-make-ajax-call-from-javascript/
+      // Creating Our XMLHttpRequest object 
+      var xhr = new XMLHttpRequest();
+
+      // Making our connection  
+      var url = 'https://TGlinsek.github.io/pesmarica/testni_program.py';
+      xhr.open("GET", url, true);
+
+      // function execute after request is successful 
+      xhr.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+              console.log(this.responseText);
+          }
+      }
+      // Sending our request 
+      xhr.send();
     }
   </script>
 
