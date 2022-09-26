@@ -7,11 +7,23 @@
 
 <body>
   <script src="seznamPesmi.js"></script>
+  
   Dobrodošli!
   
   Seznam pesmi:
+
+  <script>
+    for (var i = 0; i < seznamPesmi.length; i++) {
+      var lineBreak = document.createElement("br");
+      document.body.append(lineBreak);
+      
+      var novLink = document.createElement("a");
+      novLink.href = "https://TGlinsek.github.io/pesmarica/pesmi/" + seznamPesmi[i] + ".html";
+      novLink.innerHTML = seznamPesmi[i];
+      document.body.append(novLink);
+    }
+  </script>
   
-  <a href="https://TGlinsek.github.io/pesmarica/pesmi/prva_pesem.html">Pesem</a>
 </body>
 
 </html>
