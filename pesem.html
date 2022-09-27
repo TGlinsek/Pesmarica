@@ -93,6 +93,7 @@
       // function execute after request is successful 
       client.onreadystatechange = function() {
           if (/*this.readyState == 4 && */this.status == 200) {
+              console.log(this.responseText);
               besedilo = this.responseText;
           } else {
               console.log(this.readyState);
