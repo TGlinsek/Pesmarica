@@ -10,13 +10,13 @@ def razdeli_vrstico(niz):
                 else:
                     akordi.append((akord, h - len(akord)))  # drugi člen je samo indeks, kjer se je niz začel
                     akord = ""
-            """
+            # """
             elif len(akord) == 1:  # tu ni >= 1, ker drugače bi se "cmaj7" spremenil v "cm" in "aj7"
                 j = i.lower()
                 if j in "abcdefgh":
-                    akordi.append(akord)
+                    akordi.append((akord, h - len(akord)))
                     akord = ""
-            """  # to je zato, da recimo loči niz "Cfis" v "c" in "fis"
+            # """  # to je zato, da recimo loči niz "Cfis" v "c" in "fis"
             akord += i
         else:
             if akord != "":
@@ -32,7 +32,7 @@ primeri = [
     "Fis    D",
     "fisis   d",
     "fiSDUR   CMAJ7CMOL",
-    "fis7cfisfsf3f3f3",
+    "fis7cfisfisf3f3f3",
     "fis7cdur  fisC"
 ]
 
@@ -42,10 +42,15 @@ pravi_primeri = [
     "Cmaj7  D7  A",
     "FisD   A G",
     "F d fismaj7A7",
+    "(H, C, D)",
+    "((H, C, D))",
     "" 
 ]
-"""
 
+
+for i in pravi_primeri:
+    print(razdeli_vrstico(i))
+"""
 
 tonalitete = {
     "c" : 0,
@@ -91,20 +96,28 @@ def spremenjeni(akordi, razlika):
     for akord, indeks in akordi:
         glava = ""
         koren = ""
+        predglava = ""
         kontrola = False
+        kontrola2 = False
         
         for i in akord:
-            if i.lower() in "abcdefgh" and not kontrola:
+            if i.lower() in "abcdefghis" and not kontrola:
                 glava += i
+                kontrola2 = True
+                if i == "s":  # tu je konec akorda, naprej so sam številke, al pa "maj" oz. podobno
+                    kontrola = True
             else:
-                kontrola = True
-                koren += i
+                if i.lower() not in "abcdefghijklmnopqrstuvwxyz0123456789" and not kontrola2:
+                    predglava += i
+                else:
+                    kontrola = True
+                    koren += i
         # print("glava: '" + glava + "'")
         # print("koren: '" + koren + "'")
         
         novi_akordi.append(
             (
-                transponiraj(glava, offset=razlika) + koren, 
+                predglava + transponiraj(glava, offset=razlika) + koren, 
                 indeks
             )
         )
@@ -124,7 +137,7 @@ def spremeni_niz(niz, razlika):
         return nova_pesem
 
     akordi = nizi.pop(0).rstrip()  # predvsem da se znebimo \n-ja
-    if len(nizi) == 1:
+    if len(nizi) == 0:
         besedilo = ""
     else:
         besedilo = nizi.pop(0).strip()
@@ -161,7 +174,7 @@ def spremeni_niz(niz, razlika):
             break
 
         akordi = nizi.pop(0).rstrip()
-        if len(nizi) == 1:
+        if len(nizi) == 0:
             besedilo = ""
         else:
             besedilo = nizi.pop(0).strip()
@@ -169,4 +182,7 @@ def spremeni_niz(niz, razlika):
     nova_pesem = nova_pesem[:-1]
     return nova_pesem
 
-
+"""
+for i in pravi_primeri:
+    print(spremenjeni(razdeli_vrstico(i), 1))
+"""
