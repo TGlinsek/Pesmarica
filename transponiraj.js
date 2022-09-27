@@ -151,7 +151,7 @@ var spremenjeni = function(akordi, razlika) {
 };
 
         
-var spremeni_niz = function(niz, razlika) {
+var spremeniNiz = function(niz, razlika) {
     // razlika je število poltonov, za kolikor gremo višje
 
     var nizi = niz.split("\n");

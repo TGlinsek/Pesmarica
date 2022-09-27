@@ -6,6 +6,7 @@
 </head>
 
 <body>
+  <script src="transponiraj.js"></script>
   <script>
     var value = 0;
   </script>
@@ -33,32 +34,19 @@
       value = parseInt(x.value);
       console.log(value);
 
-      // https://www.geeksforgeeks.org/how-to-make-ajax-call-from-javascript/
-      // Creating Our XMLHttpRequest object 
-      var xhr = new XMLHttpRequest();
-
-      // Making our connection  
-      var url = 'https://TGlinsek.github.io/pesmarica/testni_program.py';
-      xhr.open("GET", url, true);
-
-      // function execute after request is successful 
-      xhr.onreadystatechange = function () {
-          if (this.readyState == 4 && this.status == 200) {
-              console.log(this.responseText);
-          }
-      }
-      // Sending our request 
-      xhr.send();
+      var niz = document.getElementById("besedilo").innerHTML;
+      var novoBesedilo = spremeniNiz(niz, value);
+      document.getElementById("besedilo").innerHTML = novoBesedilo;
     }
   </script>
 
   <pre>NASLOV
   
-  C          F     G
+  <div id="besedilo">C          F     G
   Test,      test  test
   C
   Test.
-  </pre>
+  </div></pre>
 
 
 </body>
