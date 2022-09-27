@@ -61,12 +61,17 @@
 
       // https://www.geeksforgeeks.org/how-to-get-url-parameters-using-javascript/
       let paramString = urlString.split('?')[1];
-      let queryString = new URLSearchParams(paramString).entries();
+      let queryString = new URLSearchParams(paramString);
 
+      console.log(queryString.length);
       if (queryString.length > 1) {
           throw "Preveč argumentov! To se ne bi smelo zgoditi.";
       }
-      var par = queryString[0];
+      
+      for (var par of queryString.entries()) {
+          break;
+      }
+
       if (par[0] != "ime") {
           throw "Napačen argument! To se ne bi smelo zgoditi.";
       }
