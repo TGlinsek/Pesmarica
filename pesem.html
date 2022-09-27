@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+  <script src="transponiraj.js"></script>
+  <script>
+    var value = 0;
+  </script>
+
+  <form>
+    <select id="mySelect">
+      <option value="-12">-12</option>
+      <option value="-11">-11</option>
+      <option value="-10">-10</option>
+      <option value="-9">-9</option>
+      <option value="-8">-8</option>
+      <option value="-7">-7</option>
+      <option value="-6">-6</option>
+      <option value="-5">-5</option>
+      <option value="-4">-4</option>
+      <option value="-3">-3</option>
+      <option value="-2">-2</option>
+      <option value="-1">-1</option>
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+      <option value="11">11</option>
+      <option value="12">12</option>
+    </select>
+  </form>
+
+  <button type="button" onclick="myFunction()">Transponiraj</button>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("mySelect");
+      value = parseInt(x.value);
+      // console.log(value);
+
+      var niz = document.getElementById("besedilo").innerHTML;
+      var novoBesedilo = spremeniNiz(niz, value);
+      document.getElementById("besedilo").innerHTML = novoBesedilo;
+    }
+  </script>
+
+  <script>
+      // generiranje teksta na začetku
+
+      // https://www.geeksforgeeks.org/how-to-get-url-parameters-using-javascript/
+      let paramString = urlString.split('?')[1];
+      let queryString = new URLSearchParams(paramString);
+
+      if (queryString.length > 1) {
+          throw "Preveč argumentov! To se ne bi smelo zgoditi.";
+      }
+      var par = queryString[0];
+      if (par[0] != "ime") {
+          throw "Napačen argument! To se ne bi smelo zgoditi.";
+      }
+      
+      // https://www.geeksforgeeks.org/how-to-make-ajax-call-from-javascript/
+      // Creating Our XMLHttpRequest object 
+      var client = new XMLHttpRequest();
+
+      // Making our connection
+      var url = "https://TGlinsek.github.io/pesmarica/pesmi/" + queryString[1] + ".txt";
+      client.open("GET", url, true);
+
+      var besedilo;
+
+      // function execute after request is successful 
+      client.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+              besedilo = this.responseText;
+          } else {
+              throw "Nismo mogli dostopati do datoteke!";
+          }
+      }
+      // Sending our request 
+      client.send();
+
+      document.getElementById("besedilo").innerHTML = besedilo;
+  </script>
+
+  <pre id="besedilo">
+  </pre>
+
+
+</body>
+
+</html>
