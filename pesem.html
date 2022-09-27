@@ -57,6 +57,8 @@
   <script>
       // generiranje teksta na začetku
 
+      var urlString = window.location.href;
+
       // https://www.geeksforgeeks.org/how-to-get-url-parameters-using-javascript/
       let paramString = urlString.split('?')[1];
       let queryString = new URLSearchParams(paramString);
