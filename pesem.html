@@ -61,7 +61,7 @@
 
       // https://www.geeksforgeeks.org/how-to-get-url-parameters-using-javascript/
       let paramString = urlString.split('?')[1];
-      let queryString = new URLSearchParams(paramString);
+      let queryString = new URLSearchParams(paramString).entries();
 
       if (queryString.length > 1) {
           throw "Preveč argumentov! To se ne bi smelo zgoditi.";
