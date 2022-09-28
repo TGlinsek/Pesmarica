@@ -1,4 +1,5 @@
 NASLOV PESMI
+Avtor pesmi
 
 C          F     G
 Test,      test  test

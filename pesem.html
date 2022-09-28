@@ -13,31 +13,31 @@
 
   <form>
     <select id="mySelect">
-      <option value="-12">-12</option>
-      <option value="-11">-11</option>
-      <option value="-10">-10</option>
-      <option value="-9">-9</option>
-      <option value="-8">-8</option>
-      <option value="-7">-7</option>
-      <option value="-6">-6</option>
-      <option value="-5">-5</option>
-      <option value="-4">-4</option>
-      <option value="-3">-3</option>
-      <option value="-2">-2</option>
-      <option value="-1">-1</option>
-      <option value="0">0</option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
       <option value="12">12</option>
+      <option value="11">11</option>
+      <option value="10">10</option>
+      <option value="9">9</option>
+      <option value="8">8</option>
+      <option value="7">7</option>
+      <option value="6">6</option>
+      <option value="5">5</option>
+      <option value="4">4</option>
+      <option value="3">3</option>
+      <option value="2">2</option>
+      <option value="1">1</option>
+      <option value="0">0</option>
+      <option value="-1">-1</option>
+      <option value="-2">-2</option>
+      <option value="-3">-3</option>
+      <option value="-4">-4</option>
+      <option value="-5">-5</option>
+      <option value="-6">-6</option>
+      <option value="-7">-7</option>
+      <option value="-8">-8</option>
+      <option value="-9">-9</option>
+      <option value="-10">-10</option>
+      <option value="-11">-11</option>
+      <option value="-12">-12</option>
     </select>
   </form>
 
@@ -49,8 +49,10 @@
       // console.log(value);
 
       var niz = document.getElementById("besedilo").innerHTML;
-      var novoBesedilo = spremeniNiz(niz, value);
-      document.getElementById("besedilo").innerHTML = novoBesedilo;
+      var nizi = niz.split("\n\n");
+
+      var novoBesedilo = spremeniNiz(nizi.slice(1) ? nizi.length >= 2 : niz, value);
+      document.getElementById("besedilo").innerHTML = (nizi[0] + "\n\n" ? nizi.length >= 2 : "") + novoBesedilo;
     }
   </script>
 
@@ -107,6 +109,12 @@
       client.send();
   </script>
 
+  <button type="button" id="domov">Domov</button>
+  <script type="text/javascript">
+    document.getElementById("domov").onclick = function() {
+        window.location.href = "https://TGlinsek.github.io/pesmarica";
+    };
+  </script>
 </body>
 
 </html>
