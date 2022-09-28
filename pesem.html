@@ -51,8 +51,8 @@
       var niz = document.getElementById("besedilo").innerHTML;
       var nizi = niz.split("\n\n");
 
-      var novoBesedilo = spremeniNiz(nizi.slice(1) ? nizi.length >= 2 : niz, value);
-      document.getElementById("besedilo").innerHTML = (nizi[0] + "\n\n" ? nizi.length >= 2 : "") + novoBesedilo;
+      var novoBesedilo = spremeniNiz(nizi.slice(1).join() ? nizi.length >= 2 : niz, value);
+      document.getElementById("besedilo").innerHTML = ((nizi[0] + "\n\n") ? nizi.length >= 2 : "") + novoBesedilo;
     }
   </script>
 
