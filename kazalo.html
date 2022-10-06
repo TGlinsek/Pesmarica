@@ -9,7 +9,7 @@
   <script src="seznamPesmi.js"></script>
 
   <script>
-      var urlString = window.location.href;
+    var urlString = window.location.href;
 
     // https://www.geeksforgeeks.org/how-to-get-url-parameters-using-javascript/
     let paramString = urlString.split('?')[1];
@@ -26,13 +26,13 @@
         stevec++;
     }
 
-    seznam = par[1].split("~")
+    seznam = par[1].split("~");
     // seznam vseh imen folderjev v urlju. npr. : "?pot=prvi_folder~drugi_folder~tretji_folder", potem ima seznam pač te tri elemente
     // ~ je ločilo
 
     var podSlovar = seznamPesmi;
     for (var i = 0; i < seznam.length; i++) {
-        podSlovar = podSlovar[seznam[i]]
+        podSlovar = podSlovar[seznam[i]];
     }
 
 
@@ -43,7 +43,7 @@
       var novLink = document.createElement("a");
       
       if (podSlovar[i] != null) {
-        novLink.href = "https://TGlinsek.github.io/pesmarica/kazalo.html?pot=" + seznam.join("~") + "~" + i;
+        novLink.href = "https://TGlinsek.github.io/pesmarica/kazalo.html?ime=" + seznam.join("~") + "~" + i;
       } else {
         novLink.href = "https://TGlinsek.github.io/pesmarica/pesem.html?ime=" + seznam.join("~") + "~" + i;
       }
