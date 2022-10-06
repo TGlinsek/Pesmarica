@@ -13,13 +13,19 @@
   Seznam pesmi:
 
   <script>
-    for (var i = 0; i < seznamPesmi.length; i++) {
+    for (var i in seznamPesmi) {
       var lineBreak = document.createElement("br");
       document.body.append(lineBreak);
       
       var novLink = document.createElement("a");
-      novLink.href = "https://TGlinsek.github.io/pesmarica/pesem.html?ime=" + seznamPesmi[i];
-      novLink.innerHTML = seznamPesmi[i];
+      if (seznamPesmi[i] != null) {
+        novLink.href = "https://TGlinsek.github.io/pesmarica/kazalo.html?pot=" + i;
+      } else {
+        novLink.href = "https://TGlinsek.github.io/pesmarica/pesem.html?ime=" + i;
+      }
+
+      
+      novLink.innerHTML = i;
       document.body.append(novLink);
     }
   </script>

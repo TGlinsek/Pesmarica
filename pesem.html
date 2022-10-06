@@ -69,25 +69,35 @@
       let queryString = new URLSearchParams(paramString);
 
       var stevec = 0;
+      var ime;
+      var pot;
       for (var par of queryString.entries()) {
-            if (stevec == 1) {
-                throw "Preveč argumentov! To se ne bi smelo zgoditi.";
-            }
-            stevec++;
+          if (stevec == 0) {
+              ime = par;
+              if (ime[0] != "ime") {
+                  throw "Napačno ime argumenta!";
+              }
+          }
+          else if (stevec == 1) {
+              pot = par;
+              if (pot[0] != "pot") {
+                  throw "Napačno ime argumenta!";
+              }
+          }
+          else if (stevec == 2) {
+              throw "Preveč argumentov! To se ne bi smelo zgoditi.";
+          }
+          stevec++;
+
       }
 
-      if (par[0] != "ime") {
-          throw "Napačen argument! To se ne bi smelo zgoditi.";
-      }
-
-      console.log(par);
       
       // https://www.geeksforgeeks.org/how-to-make-ajax-call-from-javascript/
       // Creating Our XMLHttpRequest object 
       var client = new XMLHttpRequest();
 
       // Making our connection
-      var url = "https://TGlinsek.github.io/pesmarica/pesmi/" + par[1] + ".txt";
+      var url = "https://TGlinsek.github.io/pesmarica/pesmi/" + ime[1] + ".txt";
       client.open("GET", url, true);
 
       var besedilo;
