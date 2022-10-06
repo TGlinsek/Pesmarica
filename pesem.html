@@ -97,7 +97,7 @@
       var client = new XMLHttpRequest();
 
       // Making our connection
-      var url = "https://TGlinsek.github.io/pesmarica/pesmi/" + ime[1] + ".txt";
+      var url = "https://TGlinsek.github.io/pesmarica/pesmi/" + pot[1].join("~") + "~" + ime[1] + ".txt";
       client.open("GET", url, true);
 
       var besedilo;
