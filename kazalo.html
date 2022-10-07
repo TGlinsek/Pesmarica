@@ -20,14 +20,14 @@
         if (stevec == 1) {
             throw "Preveč argumentov! To se ne bi smelo zgoditi.";
         }
-        if (par[0] != "pot") {
+        if (par[0] != "ime") {
             throw "Napačen argument!";
         }
         stevec++;
     }
 
     seznam = par[1].split("~");
-    // seznam vseh imen folderjev v urlju. npr. : "?pot=prvi_folder~drugi_folder~tretji_folder", potem ima seznam pač te tri elemente
+    // seznam vseh imen folderjev v urlju. npr. : "?ime=prvi_folder~drugi_folder~tretji_folder", potem ima seznam pač te tri elemente
     // ~ je ločilo
 
     var podSlovar = seznamPesmi;
