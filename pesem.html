@@ -84,16 +84,16 @@
 
       
       // https://www.geeksforgeeks.org/how-to-make-ajax-call-from-javascript/
-      // Creating Our XMLHttpRequest object 
+      // Creating Our XMLHttpRequest object
       var client = new XMLHttpRequest();
 
       // Making our connection
-      var url = "https://TGlinsek.github.io/pesmarica/pesmi/" + ime[1] + ".txt";
+      var url = "https://TGlinsek.github.io/pesmarica/pesmi/" + ime[1].split("~").join("/") + ".txt";
       client.open("GET", url, true);
 
       var besedilo;
 
-      // function execute after request is successful 
+      // function execute after request is successful
       client.onreadystatechange = function() {
           if (/*this.readyState == 4 && */this.status == 200) {
               console.log(this.responseText);
@@ -106,7 +106,7 @@
               throw "Nismo mogli dostopati do datoteke!";
           }
       }
-      // Sending our request 
+      // Sending our request
       client.send();
   </script>
 
