@@ -3,6 +3,6 @@ var seznamPesmi = {
   "druga_pesem" : null,
   "tretja_pesem" : null,
   "dodatne_pesmi" : {
-    "četrta_pesem" : null
+    "cetrta_pesem" : null
   }
 };
