@@ -13,17 +13,44 @@
   Seznam pesmi:
 
   <script>
-    for (var i in seznamPesmi) {
+    var urlString = window.location.href;
+
+    // https://www.geeksforgeeks.org/how-to-get-url-parameters-using-javascript/
+    let paramString = urlString.split('?')[1];
+    let queryString = new URLSearchParams(paramString);
+
+    var stevec = 0;
+    for (var par of queryString.entries()) {
+        if (stevec == 1) {
+            throw "Preveč argumentov! To se ne bi smelo zgoditi.";
+        }
+        if (par[0] != "ime") {
+            throw "Napačen argument!";
+        }
+        stevec++;
+    }
+
+    seznam = par[1].split("~");
+    // seznam vseh imen folderjev v urlju. npr. : "?ime=prvi_folder~drugi_folder~tretji_folder", potem ima seznam pač te tri elemente
+    // ~ je ločilo
+
+    var podSlovar = seznamPesmi;
+    for (var i = 0; i < seznam.length; i++) {
+        podSlovar = podSlovar[seznam[i]];
+    }
+
+
+    for (var i in podSlovar) {
       var lineBreak = document.createElement("br");
       document.body.append(lineBreak);
       
       var novLink = document.createElement("a");
-      if (seznamPesmi[i] != null) {
-        novLink.href = "https://TGlinsek.github.io/pesmarica/kazalo.html?ime=" + i;
+      
+      if (podSlovar[i] != null) {
+        novLink.href = "https://TGlinsek.github.io/pesmarica/index.html?ime=" + seznam.join("~") + "~" + i;
       } else {
-        novLink.href = "https://TGlinsek.github.io/pesmarica/pesem.html?ime=" + i;
+        novLink.href = "https://TGlinsek.github.io/pesmarica/pesem.html?ime=" + seznam.join("~") + "~" + i;
       }
-
       
       novLink.innerHTML = i;
       document.body.append(novLink);
