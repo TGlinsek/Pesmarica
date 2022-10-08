@@ -20,6 +20,7 @@
     let queryString = new URLSearchParams(paramString);
 
     var stevec = 0;
+    var seznam = [];
     for (var par of queryString.entries()) {
         if (stevec == 1) {
             throw "Preveč argumentov! To se ne bi smelo zgoditi.";
@@ -27,10 +28,10 @@
         if (par[0] != "ime") {
             throw "Napačen argument!";
         }
+        seznam = par[1].split("~");
         stevec++;
     }
 
-    seznam = par[1].split("~");
     // seznam vseh imen folderjev v urlju. npr. : "?ime=prvi_folder~drugi_folder~tretji_folder", potem ima seznam pač te tri elemente
     // ~ je ločilo
 
@@ -47,9 +48,9 @@
       var novLink = document.createElement("a");
       
       if (podSlovar[i] != null) {
-        novLink.href = "https://TGlinsek.github.io/pesmarica/index.html?ime=" + seznam.join("~") + "~" + i;
+        novLink.href = "https://TGlinsek.github.io/pesmarica/index.html?ime=" + seznam.concat([i]).join("~");
       } else {
-        novLink.href = "https://TGlinsek.github.io/pesmarica/pesem.html?ime=" + seznam.join("~") + "~" + i;
+        novLink.href = "https://TGlinsek.github.io/pesmarica/pesem.html?ime=" + seznam.concat([i]).join("~");
       }
       
       novLink.innerHTML = i;
