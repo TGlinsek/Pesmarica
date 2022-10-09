@@ -87,8 +87,10 @@
       // Creating Our XMLHttpRequest object
       var client = new XMLHttpRequest();
 
+      var seznam = ime[1].split("~");
+
       // Making our connection
-      var url = "https://TGlinsek.github.io/pesmarica/pesmi/" + ime[1].split("~").join("/") + ".txt";
+      var url = "https://TGlinsek.github.io/pesmarica/pesmi/" + seznam.join("/") + ".txt";
       client.open("GET", url, true);
 
       var besedilo;
@@ -108,6 +110,13 @@
       }
       // Sending our request
       client.send();
+  </script>
+
+  <button type="button" id="nazaj">Nazaj</button>
+  <script type="text/javascript">
+    document.getElementById("nazaj").onclick = function() {
+        window.location.href = "https://TGlinsek.github.io/pesmarica/index.html?ime=" + seznam.slice(0, -1).join("~");
+    };
   </script>
 
   <button type="button" id="domov">Domov</button>
