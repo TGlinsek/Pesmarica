@@ -110,8 +110,10 @@
       }
       // Sending our request
       client.send();
-
-
+  </script>
+  <button type="button" id="nazaj">Nazaj</button>
+  <button type="button" id="domov">Domov</button>
+  <script>
       document.getElementById("nazaj").onclick = function() {
         window.location.href = seznam.length <= 1 ? "https://TGlinsek.github.io/pesmarica" : "https://TGlinsek.github.io/pesmarica/index.html?ime=" + seznam.slice(0, -1).join("~");
       };
@@ -120,8 +122,6 @@
         window.location.href = "https://TGlinsek.github.io/pesmarica";
       };
   </script>
-  <button type="button" id="nazaj">Nazaj</button>
-  <button type="button" id="domov">Domov</button>
 </body>
 
 </html>

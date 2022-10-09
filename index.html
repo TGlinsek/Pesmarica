@@ -35,13 +35,6 @@
     if (seznam.length == 0) {  // prva stran
       // document.body.appendChild(document.createTextNode("Dobrodošli!"));
       document.getElementById("pozdrav").textContent = "Dobrodošli!";
-    } else {
-      document.getElementById("nazaj").onclick = function() {
-        window.location.href = seznam.length <= 1 ? "https://TGlinsek.github.io/pesmarica" : "https://TGlinsek.github.io/pesmarica/index.html?ime=" + seznam.slice(0, -1).join("~");
-      };
-      document.getElementById("domov").onclick = function() {
-        window.location.href = "https://TGlinsek.github.io/pesmarica";
-      };
     }
 
     // seznam vseh imen folderjev v urlju. npr. : "?ime=prvi_folder~drugi_folder~tretji_folder", potem ima seznam pač te tri elemente
@@ -72,7 +65,16 @@
 
   <button type="button" id="nazaj">Nazaj</button>
   <button type="button" id="domov">Domov</button>
-
+  <script>
+    if (seznam.length != 0) {
+      document.getElementById("nazaj").onclick = function() {
+        window.location.href = seznam.length <= 1 ? "https://TGlinsek.github.io/pesmarica" : "https://TGlinsek.github.io/pesmarica/index.html?ime=" + seznam.slice(0, -1).join("~");
+      };
+      document.getElementById("domov").onclick = function() {
+        window.location.href = "https://TGlinsek.github.io/pesmarica";
+      };
+    }
+  </script>
 </body>
 
 </html>
