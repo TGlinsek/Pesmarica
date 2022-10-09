@@ -37,7 +37,7 @@
       document.getElementById("pozdrav").textContent = "Dobrodošli!";
     } else {
       document.getElementById("nazaj").onclick = function() {
-        window.location.href = "https://TGlinsek.github.io/pesmarica/index.html?ime=" + seznam.slice(0, -1).join("~");
+        window.location.href = seznam.length <= 1 ? "https://TGlinsek.github.io/pesmarica" : "https://TGlinsek.github.io/pesmarica/index.html?ime=" + seznam.slice(0, -1).join("~");
       };
       document.getElementById("domov").onclick = function() {
         window.location.href = "https://TGlinsek.github.io/pesmarica";
@@ -72,7 +72,7 @@
 
   <button type="button" id="nazaj">Nazaj</button>
   <button type="button" id="domov">Domov</button>
-  
+
 </body>
 
 </html>
