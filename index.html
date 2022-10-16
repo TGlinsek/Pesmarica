@@ -63,6 +63,7 @@
     }
   </script>
 
+  <!--
   <script>
     var lineBreak = document.createElement("br");
     document.body.append(lineBreak);
@@ -74,26 +75,89 @@
     document.body.append(lineBreak);
   </script>
   <button type="button" id="domov">Domov</button>
+  -->
 
   <script>
     if (seznam.length != 0) {
+      var lineBreak = document.createElement("br");
+      document.body.append(lineBreak);
+      var btn = document.createElement("button");
+      btn.id = "nazaj";
+      btn.innerHTML = "Nazaj";
+      document.body.appendChild(btn);
       document.getElementById("nazaj").onclick = function() {
         window.location.href = seznam.length <= 1 ? "https://TGlinsek.github.io/pesmarica" : "https://TGlinsek.github.io/pesmarica/index.html?ime=" + seznam.slice(0, -1).join("~");
       };
+
+      // var lineBreak = document.createElement("br");
+      document.body.append(lineBreak);
+      var btn = document.createElement("button");
+      btn.id = "domov";
+      btn.innerHTML = "Domov";
+      document.body.appendChild(btn);
       document.getElementById("domov").onclick = function() {
         window.location.href = "https://TGlinsek.github.io/pesmarica";
       };
     }
   </script>
+  
+  <script>
+    var lineBreak = document.createElement("br");
+    document.body.append(lineBreak);
+  </script>
 
+-----
+
+  <script>
+    var lineBreak = document.createElement("br");
+    document.body.append(lineBreak);
+  </script>
   <button type="button" id="rand1">Naključna pesem iz te mape</button>
+
+  <script>
+    var lineBreak = document.createElement("br");
+    document.body.append(lineBreak);
+  </script>
   <button type="button" id="rand2">Naključna pesem iz celotne te mape</button>
+
+  <script>
+    var lineBreak = document.createElement("br");
+    document.body.append(lineBreak);
+  </script>
   <button type="button" id="rand3">Naključna pesem iz podmap te mape</button>
+
+  <script>
+    var lineBreak = document.createElement("br");
+    document.body.append(lineBreak);
+  </script>
   <button type="button" id="rand4">Naključni link iz te mape</button>
 
   <script>
     console.log(seznamPesmi);
+    console.log(seznam);
     console.log(window.seznam);
+
+    // Object.keys(dict)
+    /*
+    Object.entries(dict).forEach(([key, value]) => {
+     console.log(key, value);
+    });
+    */
+    // dict[key] == null
+    /*
+    var index = Math.floor(Math.random() * sez.length);
+    return sez[index];
+    */
+    var mape = [];
+    document.getElementById("rand1").onclick = function() {
+      Object.entries(seznam).forEach(([key, value]) => {
+        if (value != null) {
+          mape.push(key);
+        }
+      });
+    };
+    var index = Math.floor(Math.random() * mape.length);
+    window.location.href += (seznam.length <= 1 ? "/index.html?ime=" : "~") + mape[index];
   </script>
 
 </body>
