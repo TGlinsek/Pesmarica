@@ -148,16 +148,17 @@
     var index = Math.floor(Math.random() * sez.length);
     return sez[index];
     */
-    var mape = [];
+    
     document.getElementById("rand1").onclick = function() {
+      var mape = [];
       Object.entries(seznam).forEach(([key, value]) => {
         if (value != null) {
           mape.push(key);
         }
       });
+      var index = Math.floor(Math.random() * mape.length);
+      window.location.href += (seznam.length <= 1 ? "/index.html?ime=" : "~") + mape[index];
     };
-    var index = Math.floor(Math.random() * mape.length);
-    window.location.href += (seznam.length <= 1 ? "/index.html?ime=" : "~") + mape[index];
   </script>
 
 </body>
