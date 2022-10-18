@@ -61,6 +61,7 @@
       novLink.innerHTML = i;
       document.body.append(novLink);
     }
+    console.log(seznam);
   </script>
 
   <!--
@@ -78,6 +79,7 @@
   -->
 
   <script>
+    console.log(seznam);
     if (seznam.length != 0) {
       var lineBreak = document.createElement("br");
       document.body.append(lineBreak);
@@ -152,7 +154,7 @@
     document.getElementById("rand1").onclick = function() {
       var mape = [];
       Object.entries(seznam).forEach(([key, value]) => {
-        if (value != null) {
+        if (value == null) {
           mape.push(key);
         }
       });
