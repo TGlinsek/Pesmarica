@@ -61,7 +61,6 @@
       novLink.innerHTML = i;
       document.body.append(novLink);
     }
-    console.log(seznam);
   </script>
 
   <!--
@@ -79,7 +78,6 @@
   -->
 
   <script>
-    console.log(seznam);
     if (seznam.length != 0) {
       var lineBreak = document.createElement("br");
       document.body.append(lineBreak);
@@ -116,6 +114,7 @@
   </script>
   <button type="button" id="rand1">Naključna pesem iz te mape</button>
 
+  <!--
   <script>
     var lineBreak = document.createElement("br");
     document.body.append(lineBreak);
@@ -133,11 +132,11 @@
     document.body.append(lineBreak);
   </script>
   <button type="button" id="rand4">Naključni link iz te mape</button>
+  -->
 
   <script>
     console.log(seznamPesmi);
     console.log(seznam);
-    console.log(window.seznam);
 
     // Object.keys(dict)
     /*
@@ -153,7 +152,7 @@
     
     document.getElementById("rand1").onclick = function() {
       var mape = [];
-      Object.entries(seznam).forEach(([key, value]) => {
+      Object.entries(seznamPesmi).forEach(([key, value]) => {
         if (value == null) {
           mape.push(key);
         }
