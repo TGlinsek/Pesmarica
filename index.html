@@ -59,6 +59,7 @@
       }
       
       novLink.innerHTML = i;
+      console.log(podSlovar[i])
       document.body.append(novLink);
     }
   </script>
@@ -89,7 +90,7 @@
         window.location.href = seznam.length <= 1 ? "https://TGlinsek.github.io/pesmarica" : "https://TGlinsek.github.io/pesmarica/index.html?ime=" + seznam.slice(0, -1).join("~");
       };
 
-      // var lineBreak = document.createElement("br");
+      var lineBreak = document.createElement("br");
       document.body.append(lineBreak);
       var btn = document.createElement("button");
       btn.id = "domov";
@@ -135,8 +136,8 @@
   -->
 
   <script>
-    console.log(seznamPesmi);
-    console.log(seznam);
+    // console.log(seznamPesmi);
+    // console.log(seznam);
 
     // Object.keys(dict)
     /*
@@ -158,7 +159,7 @@
         }
       });
       var index = Math.floor(Math.random() * mape.length);
-      window.location.href += (seznam.length <= 1 ? "/index.html?ime=" : "~") + mape[index];
+      window.location.href += (seznam.length <= 1 ? "/pesem.html?ime=" : "~") + mape[index];
     };
   </script>
 
