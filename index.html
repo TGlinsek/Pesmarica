@@ -58,8 +58,8 @@
         novLink.href = "https://TGlinsek.github.io/pesmarica/pesem.html?ime=" + seznam.concat([i]).join("~");
       }
       
+      var toJeMapa = !(podSlovar[i] == null);
       novLink.innerHTML = i;
-      console.log(podSlovar[i])
       document.body.append(novLink);
     }
   </script>
@@ -90,7 +90,7 @@
         window.location.href = seznam.length <= 1 ? "https://TGlinsek.github.io/pesmarica" : "https://TGlinsek.github.io/pesmarica/index.html?ime=" + seznam.slice(0, -1).join("~");
       };
 
-      var lineBreak = document.createElement("br");
+      var lineBreak = document.createElement("br");  // tu moramo novega ustvariti, namreč mislim, da je lahko en objekt (lineBreak) le enkrat prisoten v document.body
       document.body.append(lineBreak);
       var btn = document.createElement("button");
       btn.id = "domov";
@@ -137,7 +137,7 @@
 
   <script>
     // console.log(seznamPesmi);
-    // console.log(seznam);
+    console.log(seznam);
 
     // Object.keys(dict)
     /*
@@ -159,7 +159,7 @@
         }
       });
       var index = Math.floor(Math.random() * mape.length);
-      window.location.href += (seznam.length <= 1 ? "/pesem.html?ime=" : "~") + mape[index];
+      window.location.href = "https://tglinsek.github.io/pesmarica/pesem.html?ime=" + "~".join(seznam) + "~" + mape[index];
     };
   </script>
 
