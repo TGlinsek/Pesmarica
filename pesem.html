@@ -49,10 +49,11 @@
       // console.log(value);
 
       var niz = document.getElementById("besedilo").innerHTML;
-      var nizi = niz.split("\n\n");
-
-      var novoBesedilo = spremeniNiz(nizi.length >= 2 ? nizi.slice(1).join() : niz, value);
-      document.getElementById("besedilo").innerHTML = (nizi.length >= 2 ? (nizi[0] + "\n\n") : "") + novoBesedilo;
+      var prazninaMedNaslovomInTekstom = "\n\n\n";  // toliko praznine naj bo. Lahko spremenimo na recimo \n\n
+      var nizi = niz.split(prazninaMedNaslovomInTekstom);
+      
+      var novoBesedilo = spremeniNiz(nizi.length >= 2 ? nizi.slice(1).join(prazninaMedNaslovomInTekstom) : niz, value);
+      document.getElementById("besedilo").innerHTML = (nizi.length >= 2 ? (nizi[0] + prazninaMedNaslovomInTekstom) : "") + novoBesedilo;
     }
   </script>
 
