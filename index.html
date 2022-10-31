@@ -159,7 +159,7 @@
         }
       });
       var index = Math.floor(Math.random() * mape.length);
-      window.location.href = "https://tglinsek.github.io/pesmarica/pesem.html?ime=" + seznam.join("~") + "~" + mape[index];
+      window.location.href = "https://tglinsek.github.io/pesmarica/pesem.html?ime=" + seznam.join("~") + (seznam.length == 0 ? "" : "~") + mape[index];
     };
   </script>
 
