@@ -5,5 +5,8 @@ var seznamPesmi = {
   "dodatne_pesmi" : {
     "cetrta_pesem" : null
   },
-  "Hazard - Vsak je sam" : null
+  "Hazard - Vsak je sam" : null,
+  "Katjuša" : null,
+  "Adi Smolar - Dvajset ljubic" : null,
+  "Zmelkoow - Ko bom prišel spet nazaj" : null,
 };
