@@ -90,8 +90,13 @@ In vse bo zdaj
 E        G            H     A
 Ko bom prišel spet nazaj
 H        dis      gis      H
+
 E        G        gis      A    
+
 H        dis      gis      H
+
 E        G        gis      A
+
 gis      dis      gis      dis
+
 E        G        gis      A
