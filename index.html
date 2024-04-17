@@ -45,7 +45,10 @@
         podSlovar = podSlovar[seznam[i]];
     }
 
-    podSlovar["custom"] = null;
+    if (seznam.length == 0) {  // prva stran
+        podSlovar["custom"] = null;
+    }
+
     for (var i in podSlovar) {
       var lineBreak = document.createElement("br");
       document.body.append(lineBreak);

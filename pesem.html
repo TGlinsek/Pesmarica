@@ -60,8 +60,10 @@
   <pre id="besedilo">
   </pre>
 
+  <!--
   <input type="text" id="pesem">
   <button type="button" id="submit">Končaj pesem</button>
+  -->
 
   <script>
       // generiranje teksta na začetku
@@ -89,10 +91,26 @@
       var seznam = ime[1].split("~");
 
       if (seznam.join("/") === "custom") {
-        console.log("custom test");
+        var input = document.createElement("input");
+        input.type = "text";
+        input.id = "pesem";
+        document.body.appendChild(input);  // put it into the DOM
+
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.id = "submit";
+        
+        var text = document.createTextNode("Končaj pesem");
+        btn.appendChild(text)
+        document.body.appendChild(btn);
+
+
         document.getElementById("submit").addEventListener("click", () => {
           let tekst = document.getElementById("pesem").value;
           document.getElementById("besedilo").innerHTML = tekst;
+
+          document.getElementById("pesem").remove();
+          document.getElementById("submit").remove();
         });
       }
 
