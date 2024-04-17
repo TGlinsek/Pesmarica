@@ -85,6 +85,8 @@
           stevec++;
 
       }
+      
+      var seznam = ime[1].split("~");
 
       if (seznam.join("/") === "custom") {
         console.log("custom test");
@@ -96,34 +98,32 @@
 
       else {
 
-      
-      // https://www.geeksforgeeks.org/how-to-make-ajax-call-from-javascript/
-      // Creating Our XMLHttpRequest object
-      var client = new XMLHttpRequest();
+        
+        // https://www.geeksforgeeks.org/how-to-make-ajax-call-from-javascript/
+        // Creating Our XMLHttpRequest object
+        var client = new XMLHttpRequest();
 
-      var seznam = ime[1].split("~");
+        // Making our connection
+        var url = "https://TGlinsek.github.io/pesmarica/pesmi/" + seznam.join("/") + ".txt";
+        client.open("GET", url, true);
 
-      // Making our connection
-      var url = "https://TGlinsek.github.io/pesmarica/pesmi/" + seznam.join("/") + ".txt";
-      client.open("GET", url, true);
+        var besedilo;
 
-      var besedilo;
-
-      // function execute after request is successful
-      client.onreadystatechange = function() {
-          if (/*this.readyState == 4 && */this.status == 200) {
-              console.log(this.responseText);
-              besedilo = this.responseText;
-              document.getElementById("besedilo").innerHTML = besedilo;
-          } else {
-              console.log(this.readyState);
-              console.log(this.status);
-              console.log(this.responseText);
-              throw "Nismo mogli dostopati do datoteke!";
-          }
-      }
-      // Sending our request
-      client.send();
+        // function execute after request is successful
+        client.onreadystatechange = function() {
+            if (/*this.readyState == 4 && */this.status == 200) {
+                console.log(this.responseText);
+                besedilo = this.responseText;
+                document.getElementById("besedilo").innerHTML = besedilo;
+            } else {
+                console.log(this.readyState);
+                console.log(this.status);
+                console.log(this.responseText);
+                throw "Nismo mogli dostopati do datoteke!";
+            }
+        }
+        // Sending our request
+        client.send();
       }
   </script>
 
