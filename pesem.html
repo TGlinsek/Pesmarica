@@ -60,6 +60,9 @@
   <pre id="besedilo">
   </pre>
 
+  <input type="text" id="pesem">
+  <button type="button" id="submit">Končaj pesem</button>
+
   <script>
       // generiranje teksta na začetku
 
@@ -82,6 +85,16 @@
           stevec++;
 
       }
+
+      if (seznam.join("/") === "custom") {
+        console.log("custom test");
+        document.getElementById("submit").addEventListener("click", () => {
+          let tekst = document.getElementById("pesem").value;
+          document.getElementById("besedilo").innerHTML = tekst;
+        });
+      }
+
+      else {
 
       
       // https://www.geeksforgeeks.org/how-to-make-ajax-call-from-javascript/
@@ -111,6 +124,7 @@
       }
       // Sending our request
       client.send();
+      }
   </script>
 
   <script>
