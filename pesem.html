@@ -60,11 +60,6 @@
   <pre id="besedilo">
   </pre>
 
-  <!--
-  <input type="text" id="pesem">
-  <button type="button" id="submit">Končaj pesem</button>
-  -->
-
   <script>
       // generiranje teksta na začetku
 
@@ -91,7 +86,7 @@
       var seznam = ime[1].split("~");
 
       if (seznam.join("/") === "custom") {
-        var input = document.createElement("input");
+        var input = document.createElement("textarea");
         input.type = "text";
         input.id = "pesem";
         document.body.appendChild(input);  // put it into the DOM
